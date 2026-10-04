@@ -1,0 +1,47 @@
+/* tokens.css: the only place design values live. Components use tokens, never literals. */
+:root {
+  /* palette roles (values are the site's; set yours once, here) */
+  --paper: #f6f1e7;        /* page background, cream */
+  --ink: #1b1a17;          /* text */
+  --ink-muted: #5f5b53;    /* secondary text */
+  --accent: #b5542d;       /* terracotta, the one primary action */
+  --hairline: #d9d2c3;     /* rules, table lines */
+
+  /* type */
+  --font-serif: "IBM Plex Serif", Georgia, serif;
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --measure: 65ch;
+
+  /* spacing scale, rem */
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 1rem; --space-4: 1.5rem;
+  --space-5: 2.5rem; --space-6: 4rem; --space-7: 6rem;
+  --gutter: 16px;
+
+  /* corners */
+  --radius-control: 10px;  /* buttons, inputs */
+  --radius-card: 14px;     /* cards, panels, menus */
+  --radius-frame: 18px;    /* image and film frames */
+  --radius-paper: 4px;     /* the printed document */
+
+  /* the one elevation */
+  --shadow-soft: 0 1px 2px rgba(27, 26, 23, 0.06), 0 8px 24px rgba(27, 26, 23, 0.08);
+
+  /* motion */
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --dur-fast: 150ms;
+  --dur-base: 220ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 0ms; --dur-base: 0ms; }
+}
+
+@media print {
+  :root { --shadow-soft: none; }
+}
+
+/* Rules of use:
+   1. No colour, radius, shadow or duration literal outside this file.
+   2. Font files are served from the site itself; no third-party font host.
+   3. Numbers use tabular figures: font-variant-numeric: tabular-nums. */
